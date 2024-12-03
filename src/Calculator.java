@@ -1,74 +1,22 @@
-public class Calculator {
-    double firstValue;
-    double secondValue;
-    String operation;
-    String name;
+import java.rmi.Remote;
+import java.rmi.RemoteException;
 
-    Calculator (String name) {
-        this.name = name;
-    }
+public interface Calculator extends Remote {
 
-    public void getFirstValue(double num) {
-        this.firstValue = num;
-    }
+    double addFunction(double firstValue, double secondValue) throws RemoteException;
 
-    public void getSecondValue(double num) {
-        this.secondValue = num;
-    }
+    double subtractFunction(double firstValue, double secondValue) throws RemoteException;
 
-    double madeOperation(int firstValue, int secondValue, String operation) {
-        this.firstValue = firstValue;
-        this.secondValue = secondValue;
-        this.operation = operation;
-        double result = 0;
-        switch (this.operation) {
-            case "+":
-                result = addFunction();
-                break;
-            case "-":
-                result = subtractFunction();
-                break;
-            case "*":
-                result = multiplyFunction();
-                break;
-            case "/":
-                result = divideFunction();
-                break;
-            case "%":
-                result = moduleFunction();
-                break;
-            case "**":
-                result = powFunction();
-                break;
-            default:
-                System.out.println("Invalid operation\nPlease try again");
-                break;
-        }
-        return result;
-    }
+    double divideFunction(double firstValue, double secondValue) throws RemoteException;
 
-    double addFunction() {
-        return this.firstValue + this.secondValue;
-    }
+    double multiplyFunction(double firstValue, double secondValue) throws RemoteException;
 
-    double subtractFunction() {
-        return this.firstValue - this.secondValue;
-    }
+    double powFunction(double firstValue, double secondValue) throws RemoteException;
 
-    double divideFunction() {
-        return this.firstValue / this.secondValue;
-    }
+    double moduleFunction(double firstValue, double secondValue) throws RemoteException;
 
-    double multiplyFunction() {
-        return this.firstValue * this.secondValue;
-    }
+    double sqrtFunction(double firstValue) throws RemoteException;
 
-    double powFunction() {
-        return Math.pow(this.firstValue, this.secondValue);
-    }
-
-    double moduleFunction() {
-        return this.firstValue % this.secondValue;
-    }
+    double oneDividerFunction(double firstValue) throws RemoteException;
 
 }

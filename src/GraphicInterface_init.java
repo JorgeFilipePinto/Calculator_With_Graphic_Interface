@@ -1,9 +1,7 @@
-import javax.swing.*;
-import java.util.ArrayList;
+import java.rmi.Naming;
 
-public class Main {
+public class GraphicInterface_init {
     public static void main(String[] args) {
-
         String[][] calculatormatrix = {
                 {"%", "CE", "C", ""},
                 {"1/x", "^", "SQRT", "/"},
@@ -14,8 +12,7 @@ public class Main {
         };
 
         GraphicInterface graphicInterface = new GraphicInterface(calculatormatrix,"Jorge Calculator", 100, 100, 20, 20);
+
         graphicInterface.init();
-
     }
-
 }
